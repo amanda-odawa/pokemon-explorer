@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button class="star-btn" data-id="${pokemonDetails.id}">\u2B50</button>
                         `;
                         card.addEventListener('click', () => openModal(pokemonDetails));
-                        pokemon.appendChild(card);
+                        pokemonList.appendChild(card);
 
                         //Check if favorited
                         const starButton = card.querySelector('.star-btn');
@@ -87,4 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
             starButton.textContent = '\u2605';
         }
     }
-})
+
+    //View favorites
+    viewFavoritesButton.addEventListener('click', () => {
+        const favorites = Object.values(localStorage)
+            .map(item => JSON.parse(item));
+        pokemonList.innerHTML = '';
+        favorites.forEach(fav => {
+            const card = document.createElement('div');
+            card.classList.add('pokemon-card');
+            card.innerHTML = 
+            `
+            <img src="${fav.sprites.front_default}" alt="${fav.name}">
+            <h3>${fav.name}</h3>
+            `;
+            pokemonList.appendChild(card);
+        });
+    });
+});
