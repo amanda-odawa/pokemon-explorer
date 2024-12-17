@@ -3,11 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const pokemonModal = document.getElementById('pokemon-modal');
     const toggleThemeButton = document.getElementById('toggle-theme');
     const viewFavoritesButton = document.getElementById('view-favorites');
+    const sortByTypeSelect = document.getElementById('sort-by-type');
 
     //Fetch Pokémon data
     fetch('https://pokeapi.co/api/v2/pokemon?limit=200')
         .then(response => response.json())
         .then(data => {
+            //Display random pokemons on load
             const randomPokemons = getRandomPokemons(data.results, 16);
 
             randomPokemons.forEach(pokemon => {
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
             });
         })
-    
+
     //Get random Pokémon
     function getRandomPokemons(pokemonArray, count) {
         let selectedPokemons = [];
@@ -57,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-title').textContent = pokemon.name;
         document.getElementById('modal-body').innerHTML =
         `
+        <span id="close-modal" class="close">&times;</span>
         <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
         <p><strong>Type:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
         <p><strong>Height:</strong> ${(pokemon.height / 10).toFixed(2)} m</p>

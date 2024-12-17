@@ -18,7 +18,26 @@
     top: 0;
     display: flex;
     justify-content: space-between;
+}
+
+.header-title {
+    margin-left: 10px;
+}
+
+.header-left {
+    display: flex;
     align-items: center;
+    gap: 10px;
+    margin-left: 10px;
+    justify-content: space-between;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 10px;
+    justify-content: space-between;
 }
 
 .fixed-footer {
@@ -35,16 +54,15 @@
     color: rgb(255, 204, 0);
 }
 
-.search-bar {
-    margin: 5px;
+.search-bar input{
     padding: 5px;
 }
 
-#toggle-theme {
+#toggle-theme, #view-favorites, #filter-type{
     background: none;
     border: 1px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
-    padding: 5px 10px;
+    padding: 3px 6px;
     cursor: pointer;
 }
 
@@ -59,7 +77,7 @@
 
 .pokemon-card {
     border: 1.7px solid rgb(204, 204, 204);
-    background-color: rgb(250, 234, 214);
+    background-color: rgb(23, 160, 206);
     border-radius: 8px;
     padding: 10px;
     text-align: center;
@@ -76,6 +94,12 @@
     font-size: 13px;
     cursor: pointer;
     display: flex;
+    border: none;
+    background: none;
+}
+
+.star-btn:hover {
+    color: rgb(255, 215, 0);
 }
 
 /*Modal styles*/
@@ -89,6 +113,7 @@
     background-color: rgb(0, 0, 0);
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 }
 
 .modal-content {
@@ -99,6 +124,18 @@
     width: 80%;
     text-align: center;
     font-size: 21.3px;
+}
+
+.close {
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 /*Dark mode*/
@@ -118,4 +155,28 @@ body.dark-mode .pokemon-card {
 
 body.dark-mode .pokemon-list {
     background-color: rgb(18, 18, 18);
+}
+
+body.dark-mode .modal-content {
+    background-color: rgb(45, 45, 45);
+}
+
+.suggestions-box {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    width: calc(100% - 10px);
+    z-index: 1000;
+}
+
+.suggestion-item {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background-color: #f2f2f2;
 }
