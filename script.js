@@ -26,8 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         card.addEventListener('click', () => openModal(pokemonDetails));
                         pokemon.appendChild(card);
 
-                        
-                    })
+                        //Check if favorited
+                        const starButton = card.querySelector('.star-btn');
+                        if(localStorage.getItem(pokemonDetails.id)) {
+                            starButton.textContent = "\u2605";
+                        }
+
+                        //Toggle favorite
+                        starButton.addEventListener('click', (e) => {
+                            e.stopPropagation();
+                            toggleFavorite(pokemonDetails, starButton);
+                        });
+                    });
             });
         })
+    
 })
