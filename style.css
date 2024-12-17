@@ -59,12 +59,18 @@
 }
 
 #toggle-theme, #view-favorites, #filter-type{
-    background: none;
+    background: rgb(51, 51, 51);
     border: 1px solid rgb(255, 255, 255);
     color: rgb(255, 255, 255);
     padding: 3px 6px;
     cursor: pointer;
 }
+
+#view-favorites {
+    border: none;
+    font-size: 20px;
+}
+
 
 /*Cards grid*/
 .pokemon-list {
@@ -91,16 +97,14 @@
 }
 
 .star-btn {
-    font-size: 13px;
+    font-size: 17px;
     cursor: pointer;
     display: flex;
     border: none;
     background: none;
 }
 
-.star-btn:hover {
-    color: rgb(255, 215, 0);
-}
+
 
 /*Modal styles*/
 .modal {
