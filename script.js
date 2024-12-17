@@ -73,5 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
     //Toggle dark/light mode
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-    })
+    });
+
+    //Toggle favorite
+    function toggleFavorite(pokemon, starButton) {
+        const isFavorited = localStorage.getItem(pokemon.id);
+        if(isFavorited) {
+            localStorage.removeItem(pokemon.id);
+            starButton.textContent = '\u2B50';
+        }
+        else {
+            localStorage.setItem(pokemon.id, JSON.stringify(pokemon));
+            starButton.textContent = '\u2605';
+        }
+    }
 })
