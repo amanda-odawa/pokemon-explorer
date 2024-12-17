@@ -50,6 +50,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 selectedPokemons.push(pokemonArray[randomIndex]);
             }
         }
-        return selectedPokemons
+        return selectedPokemons;
     }
+
+    //Open details modal
+    function openModal(pokemon) {
+        document.getElementById('modal-title').textContent = pokemon.name;
+        document.getElementById('modal-body').innerHTML =
+        `
+        <p>Height: ${pokemon.height}</p>
+        <p>Weight: ${pokemon.weight}</p>
+        <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}">
+        `;
+        pokemonModal.style.display = 'flex';
+    }
+
+    
 })
