@@ -161,22 +161,3 @@ body.dark-mode .modal-content {
     background-color: rgb(45, 45, 45);
 }
 
-.suggestions-box {
-    position: absolute;
-    background: white;
-    border: 1px solid #ccc;
-    max-height: 150px;
-    overflow-y: auto;
-    width: calc(100% - 10px);
-    z-index: 1000;
-}
-
-.suggestion-item {
-    padding: 8px;
-    cursor: pointer;
-    border-bottom: 1px solid #eee;
-}
-
-.suggestion-item:hover {
-    background-color: #f2f2f2;
-}
