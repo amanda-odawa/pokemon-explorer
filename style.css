@@ -48,3 +48,34 @@
     cursor: pointer;
 }
 
+/*Cards grid*/
+.pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    padding: 80px 20px 80px;
+}
+
+.pokemon-card {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
+.pokemon-card img {
+    width: 100px;
+    height: 100px;
+}
+
+.star-btn {
+    font-size: 20px;
+    cursor: pointer;
+}
+
