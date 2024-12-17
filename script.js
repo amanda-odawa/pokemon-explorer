@@ -41,4 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         })
     
+    //Get random Pokémon
+    function getRandomPokemons(pokemonArray, count) {
+        let selectedPokemons = [];
+        while(selectedPokemons.length < count) {
+            const randomIndex = Math.floor(Math.random() * pokemonArray.length);
+            if(!selectedPokemons.includes(pokemonArray[randomIndex])) {
+                selectedPokemons.push(pokemonArray[randomIndex]);
+            }
+        }
+        return selectedPokemons
+    }
 })
