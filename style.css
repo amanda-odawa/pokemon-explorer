@@ -83,7 +83,7 @@
 
 .pokemon-card {
     border: 1.7px solid rgb(204, 204, 204);
-    background-color: rgb(23, 160, 206);
+    background-color: rgb(61, 125, 202);
     border-radius: 8px;
     padding: 10px;
     text-align: center;
@@ -121,7 +121,7 @@
 }
 
 .modal-content {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(255 204 0);
     padding: 15px;
     border-radius: 8px;
     max-width: 400px;
@@ -144,24 +144,24 @@
 
 /*Dark mode*/
 body.dark-mode {
-    background-color:  rgb(18, 18, 18);
+    background-color:  rgb(51, 51, 51);
     color: rgb(255, 255, 255);
 }
 
 body.dark-mode .fixed-header, body.dark-mode .fixed-footer {
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(206, 34, 17);
 }
 
 body.dark-mode .pokemon-card {
-    background-color: rgb(30, 30, 30);
+    background-color: rgb(0, 49, 83);
     color: rgb(255, 255, 255);
 }
 
 body.dark-mode .pokemon-list {
-    background-color: rgb(18, 18, 18);
+    background-color: rgb(51, 51, 51);
 }
 
 body.dark-mode .modal-content {
-    background-color: rgb(45, 45, 45);
+    background-color: rgb(213 161 0);
 }
 
