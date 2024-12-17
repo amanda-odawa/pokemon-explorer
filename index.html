@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Explorer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Header-->
+    <header class="fixed-header">
+        <h1>Pokémon Explorer</h1>
+        <button id="view-favorites">View Favorites</button>
+        <div class="search-bar">
+            <input type="text" id="search" placeholder="Search Pokémon by name or ID...">
+            <button id="search-btn">Search</button>
+        </div>
+        <button id="toggle-theme">Dark Mode</button>
+    </header>
+
+    <!--Main-->
+    <main>
+        <section id="pokemon-list" class="pokemon-list">
+            <!--Pokémon cards rendered here-->
+        </section>
+
+        <!--Modal for Pokémon details-->
+        <div id="pokemon-modal" class="modal">
+            <div class="modal-content">
+                <span id="close-modal" class="close">&times;</span>
+                <h2 id="modal-title">Pokémon Details</h2>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </main>
+
+    <!--Footer-->
+    <footer class="fixed-footer">
+        <p>&copy 2024 Pokémon Explorer App by <a href="https://github.com/amanda-odawa" class="social_link_item">Amanda Odawa</a></p>
+    </footer>
+</body>
+</html>
