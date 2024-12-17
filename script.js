@@ -131,6 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Toggle dark/light mode
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
+        toggleThemeButton.textContent = 'Light';
     });
 
     //Toggle favorite
