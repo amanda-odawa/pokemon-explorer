@@ -12,7 +12,7 @@
         <h1>Pokémon Explorer</h1>
         <button id="view-favorites">View Favorites</button>
         <div class="search-bar">
-            <input type="text" id="search" placeholder="Search Pokémon by name or ID...">
+            <input type="text" id="search" placeholder="Search...">
             <button id="search-btn">Search</button>
         </div>
         <button id="toggle-theme">Dark Mode</button>
@@ -20,6 +20,14 @@
 
     <!--Main-->
     <main>
+        <!--Filter section-->
+        <div id="filter-section">
+            <label for="type-filter">Filter by Type:</label>
+            <select id="type-filter">
+                <option value="">All Types</option>
+            </select>
+        </div>
+
         <section id="pokemon-list" class="pokemon-list">
             <!--Pokémon cards rendered here-->
         </section>
@@ -30,6 +38,7 @@
                 <span id="close-modal" class="close">&times;</span>
                 <h2 id="modal-title">Pokémon Details</h2>
                 <div id="modal-body"></div>
+                <button id="return-main">Home</button>
             </div>
         </div>
     </main>

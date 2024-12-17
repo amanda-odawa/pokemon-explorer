@@ -21,6 +21,11 @@
     align-items: center;
 }
 
+.header-right {
+    display: flex;
+    gap: 10px;
+}
+
 .fixed-footer {
     bottom: 0;
     text-align: center;
@@ -40,6 +45,11 @@
     padding: 5px;
 }
 
+#filter-section {
+    margin: 80px 20px 20px;
+    text-align: center;
+}
+
 #toggle-theme {
     background: none;
     border: 1px solid rgb(255, 255, 255);
@@ -51,18 +61,19 @@
 /*Cards grid*/
 .pokemon-list {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 80px 20px 80px;
+    padding: 100px 20px 80px;
 }
 
 .pokemon-card {
-    border: 1px solid rgb(204, 204, 204);
+    border: 2px solid rgb(204, 204, 204);
     border-radius: 8px;
-    padding: 10px;
+    background-color: rgb(249, 249, 249);
+    padding: 15px;
     text-align: center;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 
 .pokemon-card:hover {
@@ -70,8 +81,9 @@
 }
 
 .pokemon-card img {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
+    margin: 10px auto;
 }
 
 .star-btn {
@@ -96,33 +108,26 @@
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 8px;
+    text-align: center;
     max-width: 500px;
-    width: 100%;
+    width: 90%;
 }
 
 .close {
     font-size: 30px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
     cursor: pointer;
 }
 
 /*Dark mode*/
-body.dark-mode {
-    background-color:  rgb(18, 18, 18);
+.dark-mode body, .dark-mode .pokemon-card {
+    background-color: rgb(34, 34, 34);
+    color: rgb(221, 221, 221);
+}
+
+.dark-mode .modal-content {
+    background-color: #333;
     color: rgb(255, 255, 255);
-}
-
-body.dark-mode .fixed-header, body.dark-mode .fixed-footer {
-    background-color: rgb(51, 51, 51);
-}
-
-body.dark-mode .pokemon-card {
-    background-color: rgb(30, 30, 30);
-    color: rgb(255, 255, 255);
-}
-
-body.dark-mode .pokemon-list {
-    background-color: rgb(18, 18, 18);
 }
