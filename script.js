@@ -8,19 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=200')
         .then(response => response.json())
         .then(data => {
-            const randomPokemons = getRandomPokemons(data.results, 8);
+            const randomPokemons = getRandomPokemons(data.results, 16);
 
             randomPokemons.forEach(pokemon => {
                 fetch(pokemon.url)
                     .then(response => response.json())
                     .then(pokemonDetails => {
                         const card = document.createElement('div');
-                        card.classList.add('pokemon-crad');
+                        card.classList.add('pokemon-card');
                         card.innerHTML = 
                         `
                         <img src="${pokemonDetails.sprites.front_default}" alt="${pokemonDetails.name}">
                         <h3>${pokemonDetails.name}</h3>
-                        <button class="star-btn" data-id="${pokemonDetails.id}">\u2B50</button>
+                        <button class="star-btn" data-id="${pokemonDetails.id}">\u2B50 Favorite</button>
                         `;
                         card.addEventListener('click', () => openModal(pokemonDetails));
                         pokemonList.appendChild(card);
