@@ -65,5 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         pokemonModal.style.display = 'flex';
     }
 
+    //Close modal 
+    closeModal.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    });
+
     
 })
