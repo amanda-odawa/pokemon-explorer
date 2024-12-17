@@ -67,8 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Close modal 
     closeModal.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
+        pokemonModal.style.display = 'none';
     });
 
-    
+    //Toggle dark/light mode
+    toggleThemeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+    })
 })
