@@ -192,6 +192,10 @@ body > footer {
     font-size: 15px;
 }
 
+.pokemon-card:hover {
+    transform: scale(1.05);
+}
+
 .star-btn span {
     display: inline-block; 
     transition: transform 0.3s, box-shadow 0.3s; 
