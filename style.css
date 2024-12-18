@@ -128,11 +128,16 @@ body > footer {
 }
 
 .pokemon-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     border: 2.5px solid rgb( 255, 203, 5);
     background-color: rgb(42, 117, 187);
     color: rgb(41, 38, 38);
     border-radius: 8px;
     padding: 20px;
+    position: relative;
     text-align: center;
     cursor: pointer;
     transition: 0.2s;
@@ -140,8 +145,15 @@ body > footer {
 }
 
 .pokemon-card img {
-    width: 130px;
-    height: auto;
+    margin-top: 10px;
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.pokemon-card h3 {
+    font-size: 16px;
+    margin: 0;
+    text-transform: capitalize;
 }
 
 .star-btn {
@@ -153,10 +165,21 @@ body > footer {
     color: rgb(240,240,240);
     text-shadow: 0 0 5px rgb( 255, 203, 5);
     transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+    margin-top: 5px;
 }
 
 .star-btn.favorited {
     color: rgb(255, 0, 0); 
+}
+
+.pokemon-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    align-items: center;
+    padding-top: 5px;
+    border-top: 1.5px solid rgb(41, 38, 38);
 }
 
 .star-btn span {
@@ -197,9 +220,65 @@ body > footer {
     font-size: 21.3px;
 }
 
-/* .hidden {
+.pokemon-modal {
     display: none;
-} */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pokemon-modal .modal-content {
+    display: flex;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 800px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pokemon-modal .modal-content img {
+    max-width: 300px;
+    max-height: 300px;
+    margin-right: 20px;
+}
+
+.pokemon-modal .modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.pokemon-modal .modal-body h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.pokemon-modal .modal-body p {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.pokemon-modal .back-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.pokemon-modal .modal-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
 
 .back-button {
     font-size: 30px;
@@ -280,4 +359,8 @@ body.dark-mode .suggestion-item:hover {
 
 body.dark-mode .back-button {
     color: rgb(255, 35, 35); 
+}
+
+body.dark-mode .pokemon-card .card-footer {
+    border-top: 1.5px solid #ddd;
 }
