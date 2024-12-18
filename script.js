@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             pokemon.sprites.other['official-artwork'].front_default ||
             pokemon.sprites.front_default;
 
+            const backgroundColor = getTypeColor(pokemon.types[0].type.name);
+
         document.getElementById('modal-title').textContent = pokemon.name;
         document.getElementById('modal-body').innerHTML =
             `
@@ -94,6 +96,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 ${pokemon.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
             </ul>
         `;
+
+        // Apply background color to modal
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.style.backgroundColor = backgroundColor;
+    
         pokemonModal.style.display = 'flex';
     }
 
@@ -175,6 +182,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    function getTypeColor(type) {
+        const typeColors = {
+            fire: '#F08030',
+            water: '#6890F0',
+            grass: '#78C850',
+            electric: '#F8D030',
+            psychic: '#F85888',
+            ice: '#98D8D8',
+            dragon: '#7038F8',
+            dark: '#705848',
+            fairy: '#EE99AC',
+            normal: '#A8A878',
+            fighting: '#C03028',
+            flying: '#A890F0',
+            poison: '#A040A0',
+            ground: '#E0C068',
+            rock: '#B8A038',
+            bug: '#A8B820',
+            ghost: '#705898',
+            steel: '#B8B8D0'
+        };
+    
+        return typeColors[type] || '#D3D3D3'; // Default to light gray if type isn't found
+    }
+
     function renderPokemonCard(pokemonDetails) {
         const imageSrc =
             pokemonDetails.sprites.other.dream_world.front_default ||
@@ -183,6 +215,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const card = document.createElement('div');
         card.classList.add('pokemon-card');
+
+        // Use the first type to determine the background color
+    const backgroundColor = getTypeColor(pokemonDetails.types[0].type.name);
+
+    card.style.backgroundColor = backgroundColor
+
         card.innerHTML = `
             <div class="card-header">
             <h3>${pokemonDetails.name}</h3>
