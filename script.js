@@ -184,9 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const card = document.createElement('div');
         card.classList.add('pokemon-card');
         card.innerHTML = `
+            <div class="card-header">
+            <h3>${pokemonDetails.name}</h3>
+            </div>
             <img src="${imageSrc}" alt="${pokemonDetails.name}">
             <div class="card-footer">
-            <h3>${pokemonDetails.name}</h3>
+            Type:<br> ${pokemonDetails.types.map(type => type.type.name).join(', ')}
             <button class="star-btn" data-id="${pokemonDetails.id}"><span>\u2764</span></button>
             </div>
         `;
