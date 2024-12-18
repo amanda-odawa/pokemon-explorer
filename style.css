@@ -1,48 +1,71 @@
 * {
+    font-family: monospace;
     margin: 0;
     padding: 0;
+    transition: background-color 0.3s, color 0.3s;
     box-sizing: border-box;
 }
 
 /*Header and Footer*/
-.fixed-header, .fixed-footer {
+.fixed-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: rgb(240, 76, 76);
     color: rgb(255, 255, 255);
     padding: 10px;
     position: fixed;
     width: 100%;
-    z-index: 10;
-}
-
-.fixed-header {
-    top: 0;
-    display: flex;
-    justify-content: space-between;
+    z-index: 10; 
 }
 
 .header-title {
-    margin-left: 10px;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-left: 10px;
-    justify-content: space-between;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .header-right {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-right: 10px;
-    justify-content: space-between;
+}
+
+.search-input{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    font-size: 12px;
+}
+
+#search-btn, #view-favorites, #toggle-theme, #filter-type {
+    background-color: rgb(240, 76, 76);
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 4px;
+    border-radius: 3px;
+    border-color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#search-btn:hover, #view-favorites:hover, #toggle-theme:hover, #filter-type:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(240, 76, 76);
+}
+
+#view-favorites, #toggle-theme {
+    font-size: 22px;
+    padding: 0.1px 10px;
 }
 
 .fixed-footer {
-    bottom: 0;
+    background-color: rgb(240, 76, 76);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    width: 100%;
     text-align: center;
+    font-size: 15px;
 }
 
 .creator {
@@ -53,24 +76,6 @@
 .creator:hover {
     color: rgb(0, 0, 0);
 }
-
-.search-bar input{
-    padding: 5px;
-}
-
-#toggle-theme, #view-favorites, #filter-type{
-    background: rgb(240, 76, 76);
-    border: 1px solid rgb(255, 255, 255);
-    color: rgb(255, 255, 255);
-    padding: 3px 6px;
-    cursor: pointer;
-}
-
-#view-favorites {
-    border: none;
-    font-size: 20px;
-}
-
 
 /*Cards grid*/
 .pokemon-list {

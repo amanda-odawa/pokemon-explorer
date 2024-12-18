@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pokemonModal = document.getElementById('pokemon-modal');
     const toggleThemeButton = document.getElementById('toggle-theme');
     const viewFavoritesButton = document.getElementById('view-favorites');
-    const sortByTypeSelect = document.getElementById('sort-by-type');
+    const filterTypeSelect = document.getElementById('filter-type');
     const searchField = document.getElementById('search');
     const suggestionsBox = document.createElement('div');
     suggestionsBox.classList.add('suggestions-box');
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //Toggle dark/light mode
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        toggleThemeButton.textContent = 'Light';
+        toggleThemeButton.textContent = '\u263D';
     });
 
     //Toggle favorite

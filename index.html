@@ -10,12 +10,9 @@
 <body>
     <!--Header-->
     <header class="fixed-header">
-        <div class="header-left">
-            <h1 class="header-title">Pokémon Explorer</h1>
-        </div>
+        <h1 class="header-title">Pokémon Explorer</h1>
         <div class="header-right">
-            <button id="view-favorites">&#11088;</button>
-            <button id="toggle-theme">Dark</button>
+            <button id="view-favorites">&#9825;</button>
             <select id="filter-type">
                 <option value="all">All Types</option>
                 <option value="normal">Normal</option>
@@ -37,11 +34,9 @@
                 <option value="steel">Steel</option>
                 <option value="fairy">Fairy</option>
             </select>
-            <div class="search-bar">
-                <input type="text" id="search" placeholder="Search...">
-                <button id="search-btn"><i class="fa fa-search"></i></button>
-                <div id="suggestions-box" class="suggestions-box"></div>
-            </div>
+            <input type="text" id="search" class="search-input" placeholder="Search...">
+            <button id="search-btn"><i class="fa fa-search"></i></button>
+            <button id="toggle-theme">&#9728;</button>
         </div>
     </header>
 
