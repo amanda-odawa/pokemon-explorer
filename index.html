@@ -12,7 +12,7 @@
     <header class="fixed-header">
         <h1 class="header-title">Pokémon Explorer</h1>
         <div class="header-right">
-            <button id="view-favorites">&#9825;</button>
+            <button id="view-favorites">&#10084;</button>
             <select id="filter-type">
                 <option value="all">All Types</option>
                 <option value="normal">Normal</option>
@@ -34,7 +34,8 @@
                 <option value="steel">Steel</option>
                 <option value="fairy">Fairy</option>
             </select>
-            <input type="text" id="search" class="search-input" placeholder="Search...">
+            <input type="text" id="search" class="search-input" placeholder="Search..." list="pokemon-suggestions">
+            <datalist id="pokemon-suggestions"></datalist>
             <button id="search-btn"><i class="fa fa-search"></i></button>
             <button id="toggle-theme">&#9728;</button>
         </div>
