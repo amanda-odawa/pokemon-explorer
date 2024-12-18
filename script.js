@@ -1,13 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // DOM elements
     const pokemonList = document.getElementById('pokemon-list');
     const pokemonModal = document.getElementById('pokemon-modal');
     const toggleThemeButton = document.getElementById('toggle-theme');
     const viewFavoritesButton = document.getElementById('view-favorites');
     const filterTypeSelect = document.getElementById('filter-type');
     const searchField = document.getElementById('search');
+    
+    // Suggestions box
     const suggestionsBox = document.createElement('div');
     suggestionsBox.classList.add('suggestions-box');
     searchField.parentNode.appendChild(suggestionsBox);
+
+    // Reload button
     const refreshHeading = document.getElementById('refresh-heading');
     refreshHeading.addEventListener('click', () => {
         location.reload();
@@ -15,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let allPokemons = [];
 
+    // Fetch Pokémon data
     fetch('https://pokeapi.co/api/v2/pokemon?limit=200')
         .then(response => response.json())
         .then(data => {
@@ -30,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
+    // Search functionality
     searchField.addEventListener('input', () => {
         const input = searchField.value.toLowerCase();
         if (input) {
@@ -63,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Get random Pokémon
     function getRandomPokemons(pokemonArray, count) {
         let selectedPokemons = [];
         while (selectedPokemons.length < count) {
@@ -74,13 +82,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return selectedPokemons;
     }
 
+    // Open modal
     function openModal(pokemon) {
         const imageSrc =
             pokemon.sprites.other.dream_world.front_default ||
             pokemon.sprites.other['official-artwork'].front_default ||
             pokemon.sprites.front_default;
 
-            const backgroundColor = getTypeColor(pokemon.types[0].type.name);
+        const backgroundColor = getTypeColor(pokemon.types[0].type.name);
 
         document.getElementById('modal-title').textContent = pokemon.name;
         document.getElementById('modal-body').innerHTML =
@@ -98,9 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         // Apply background color to modal
-    const modalContent = document.querySelector('.modal-content');
-    modalContent.style.backgroundColor = backgroundColor;
-    
+        const modalContent = document.querySelector('.modal-content');
+        modalContent.style.backgroundColor = backgroundColor;
+
         pokemonModal.style.display = 'flex';
     }
 
@@ -110,11 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Toggle dark mode
     toggleThemeButton.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         toggleThemeButton.textContent = document.body.classList.contains('dark-mode') ? '\u263D' : '\u2600';
     });
 
+    // Toggle favorite
     function toggleFavorite(pokemon, starButton) {
         const isFavorited = localStorage.getItem(pokemon.id);
         if (isFavorited) {
@@ -144,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchPokemon(searchField.value.toLowerCase());
     });
 
+    // Search Pokémon
     function searchPokemon(query) {
         const pokemon = allPokemons.find(p => p.name === query);
         if (pokemon) {
@@ -158,6 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Filter by type
     filterTypeSelect.addEventListener('change', () => {
         const selectedType = filterTypeSelect.value;
         if (selectedType === 'all') {
@@ -182,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Get type color
     function getTypeColor(type) {
         const typeColors = {
             fire: '#F08030',
@@ -203,10 +217,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ghost: '#705898',
             steel: '#B8B8D0'
         };
-    
+
         return typeColors[type] || '#D3D3D3'; // Default to light gray if type isn't found
     }
 
+    // Render Pokémon card
     function renderPokemonCard(pokemonDetails) {
         const imageSrc =
             pokemonDetails.sprites.other.dream_world.front_default ||
@@ -217,18 +232,17 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('pokemon-card');
 
         // Use the first type to determine the background color
-    const backgroundColor = getTypeColor(pokemonDetails.types[0].type.name);
-
-    card.style.backgroundColor = backgroundColor
+        const backgroundColor = getTypeColor(pokemonDetails.types[0].type.name);
+        card.style.backgroundColor = backgroundColor;
 
         card.innerHTML = `
             <div class="card-header">
-            <h3>${pokemonDetails.name}</h3>
+                <h3>${pokemonDetails.name}</h3>
             </div>
             <img src="${imageSrc}" alt="${pokemonDetails.name}">
             <div class="card-footer">
-            Type:<br> ${pokemonDetails.types.map(type => type.type.name).join(', ')}
-            <button class="star-btn" data-id="${pokemonDetails.id}"><span>\u2764</span></button>
+                Type:<br> ${pokemonDetails.types.map(type => type.type.name).join(', ')}
+                <button class="star-btn" data-id="${pokemonDetails.id}"><span>\u2764</span></button>
             </div>
         `;
         card.addEventListener('click', () => openModal(pokemonDetails));
@@ -244,4 +258,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
