@@ -23,6 +23,10 @@
 .header-title {
     font-size: 1.5rem;
     font-weight: bold;
+    border: none;
+    padding: 4px;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 .header-right {
@@ -50,7 +54,7 @@
     font-size: 14px;
 }
 
-#search-btn:hover, #view-favorites:hover, #toggle-theme:hover, #filter-type:hover {
+#refresh-heading:hover, #search-btn:hover, #view-favorites:hover, #toggle-theme:hover, #filter-type:hover {
     background-color: rgb(240,240,240);
     color: rgb(240, 76, 76);
 }
@@ -88,14 +92,21 @@
     background-color: rgb(255, 203, 5); 
 }
 
-
 .fixed-footer {
     background-color: rgb(240, 76, 76);
     color: rgb(240,240,240);
     padding: 10px;
     width: 100%;
     text-align: center;
-    font-size: 15px;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+html, body { height: 100%;}
+
+body > footer {
+  position: sticky;
+  top: 100vh;
 }
 
 .creator {
@@ -129,7 +140,7 @@
 }
 
 .pokemon-card img {
-    width: 50%;
+    width: 130px;
     height: auto;
 }
 
@@ -159,6 +170,10 @@
 }
 
 /*Modal styles*/
+#modal-body {
+    position: relative; 
+}
+
 .modal {
     display: none;
     position: fixed;
@@ -182,17 +197,31 @@
     font-size: 21.3px;
 }
 
-.close {
+/* .hidden {
+    display: none;
+} */
+
+.back-button {
     font-size: 30px;
+    font-weight: 30px;
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: -50px;
+    right: -3px; 
+    color: rgb(204, 0, 0); 
+    padding: 0;
+    border: none;
+    border-radius: 2px;
     cursor: pointer;
+    background: none;
+    transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
+    
 }
 
-.hidden {
-    display: none;
+.back-button:hover {
+    transform: scale(1.2); 
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);  
 }
+
 
 /*Dark mode*/
 body.dark-mode {
@@ -200,7 +229,7 @@ body.dark-mode {
     color: rgb(240,240,240);
 }
 
-body.dark-mode .fixed-header, body.dark-mode .fixed-footer {
+body.dark-mode .fixed-footer, body.dark-mode .fixed-header, body.dark-mode .fixed-footer {
     background-color: rgb(205, 57, 57);
 }
 
@@ -218,15 +247,19 @@ body.dark-mode .modal-content {
     background-color: rgb(119, 102, 43);
 }
 
-body.dark-mode #search-btn, body.dark-mode #view-favorites,body.dark-mode  #toggle-theme, body.dark-mode #filter-type {
+body.dark-mode .fixed-footer,body.dark-mode #refresh-heading, body.dark-mode #search-btn, body.dark-mode #view-favorites,body.dark-mode  #toggle-theme, body.dark-mode #filter-type {
     background-color: rgb(205, 57, 57);
     color: rgb(34,34,36);
     border-color: rgb(34,34,36);
 }
 
-body.dark-mode #search-btn:hover, body.dark-mode #view-favorites:hover, body.dark-mode #toggle-theme:hover, body.dark-mode #filter-type:hover {
+body.dark-mode #refresh-heading:hover, body.dark-mode #search-btn:hover, body.dark-mode #view-favorites:hover, body.dark-mode #toggle-theme:hover, body.dark-mode #filter-type:hover {
     background-color: rgb(34,34,36);
     color: rgb(205, 57, 57);
+}
+
+body.dark-mode .creator:hover {
+    color: 240,240,240;
 }
 
 body.dark-mode .header-title {
@@ -243,4 +276,8 @@ body.dark-mode .suggestions-box {
 
 body.dark-mode .suggestion-item:hover {
     color: rgb(78, 63, 12);
+}
+
+body.dark-mode .back-button {
+    color: rgb(255, 35, 35); 
 }
