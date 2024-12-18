@@ -83,16 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-title').textContent = pokemon.name;
         document.getElementById('modal-body').innerHTML =
             `
-         <button id="back-to-main" class="back-button">&times;</button>
-        <img src="${imageSrc}" alt="${pokemon.name}">
-        <p><strong>Type:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
-        <p><strong>Height:</strong> ${(pokemon.height / 10).toFixed(2)} m</p>
-        <p><strong>Weight:</strong> ${(pokemon.weight / 10).toFixed(2)} kg</p>
-        <p><strong>Abilities:</strong> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
-        <p><strong>Base Stats:</strong></p>
-        <ul>
-            ${pokemon.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
-        </ul>
+            <button id="back-to-main" class="back-button">&times;</button>
+            <img src="${imageSrc}" alt="${pokemon.name}">
+            <p><strong>Type:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
+            <p><strong>Height:</strong> ${(pokemon.height / 10).toFixed(2)} m</p>
+            <p><strong>Weight:</strong> ${(pokemon.weight / 10).toFixed(2)} kg</p>
+            <p><strong>Abilities:</strong> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
+            <p><strong>Base Stats:</strong></p>
+            <ul>
+                ${pokemon.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
+            </ul>
         `;
         pokemonModal.style.display = 'flex';
     }
@@ -185,8 +185,10 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('pokemon-card');
         card.innerHTML = `
             <img src="${imageSrc}" alt="${pokemonDetails.name}">
+            <div class="card-footer">
             <h3>${pokemonDetails.name}</h3>
             <button class="star-btn" data-id="${pokemonDetails.id}"><span>\u2764</span></button>
+            </div>
         `;
         card.addEventListener('click', () => openModal(pokemonDetails));
         pokemonList.appendChild(card);

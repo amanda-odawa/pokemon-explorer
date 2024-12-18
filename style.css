@@ -361,6 +361,6 @@ body.dark-mode .back-button {
     color: rgb(255, 35, 35); 
 }
 
-body.dark-mode .pokemon-card .card-footer {
-    border-top: 1.5px solid #ddd;
+body.dark-mode .creator:hover {
+    color: rgb(240,240,240);
 }
