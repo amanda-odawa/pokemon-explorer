@@ -135,7 +135,6 @@ body > footer {
     justify-content: space-between;
     align-items: center;
     border: 2.5px solid rgb( 255, 203, 5);
-    background-color: rgb(42, 117, 187);
     color: rgb(41, 38, 38);
     border-radius: 8px;
     padding: 10px;
@@ -188,7 +187,7 @@ body > footer {
     margin-top: 20px;
     align-items: center;
     padding-top: 7px;
-    border-top: 1.5px solid rgb(41, 38, 38);
+    border-top: 1.5px solid rgb(240,240,240);
     font-size: 15px;
 }
 
@@ -226,7 +225,6 @@ body > footer {
 }
 
 .modal-content {
-    background-color: rgb(255, 230, 131);
     border: 3px solid rgb( 255, 203, 5);
     padding: 15px;
     border-radius: 8px;
@@ -242,19 +240,17 @@ body > footer {
 }
 
 .back-button {
-    font-size: 30px;
-    font-weight: 30px;
+    font-size: 35px;
     position: absolute;
     top: -50px;
     right: -3px; 
-    color: rgb(204, 0, 0); 
+    color: rgb(0, 0, 0); 
     padding: 0;
     border: none;
     border-radius: 2px;
     cursor: pointer;
     background: none;
     transition: transform 0.3s, color 0.3s, box-shadow 0.3s;
-    
 }
 
 .back-button:hover {
@@ -281,29 +277,13 @@ body > footer {
     }
 }
 
-
 /*Dark mode*/
 body.dark-mode {
     background-color:  rgb(51, 51, 51);
-    color: rgb(240,240,240);
 }
 
 body.dark-mode .fixed-footer, body.dark-mode .fixed-header, body.dark-mode .fixed-footer {
     background-color: rgb(205, 57, 57);
-}
-
-body.dark-mode .pokemon-card {
-    background-color: rgb(0, 49, 83);
-    color: rgb(240,240,240);
-    border: 2.5px solid rgb(199, 160, 8);
-}
-
-body.dark-mode .pokemon-list {
-    background-color: rgb(51, 51, 51);
-}
-
-body.dark-mode .modal-content {
-    background-color: rgb(119, 102, 43);
 }
 
 body.dark-mode .fixed-footer,body.dark-mode #refresh-heading, body.dark-mode #search-btn, body.dark-mode #view-favorites,body.dark-mode  #toggle-theme, body.dark-mode #filter-type {
@@ -318,7 +298,7 @@ body.dark-mode #refresh-heading:hover, body.dark-mode #search-btn:hover, body.da
 }
 
 body.dark-mode .creator:hover {
-    color: 240,240,240;
+    color: rgb(240,240,240);
 }
 
 body.dark-mode .header-title {
@@ -326,7 +306,7 @@ body.dark-mode .header-title {
 }
 
 body.dark-mode .suggestions-box {
-    color: rgb(240,240,240);
+    color: rgb(255, 255, 255);
     position: absolute;
     background-color: rgb(0, 0, 0);
     border: 1px solid rgb(51, 51, 51);
@@ -336,19 +316,12 @@ body.dark-mode .suggestions-box {
 body.dark-mode .suggestion-item:hover {
     color: rgb(78, 63, 12);
 }
+body.dark-mode .pokemon-card, body.dark-mode .modal {
+    filter: brightness(87%);
+}
 
 body.dark-mode .back-button {
-    color: rgb(255, 35, 35); 
+    color: rgb(255, 255, 255); 
 }
 
-body.dark-mode .creator:hover {
-    color: rgb(240,240,240);
-}
 
-body.dark-mode .pokemon-card .card-footer {
-    border-top: 1.5px solid rgb(240,240,240);
-}
-
-body.dark-mode .pokemon-card h3 {
-    text-shadow: 1px 1px rgb(255, 205, 5);
-}
