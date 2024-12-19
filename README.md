@@ -1,5 +1,5 @@
 # Pokémon Explorer
-The application
+The Pokémon Explorer app is a fun and interactive tool where users can explore detailed information about Pokémon, such as stats, abilities, types, and images. It's great for users who want to learn more about Pokémon or even those just starting with the Pokémon franchise.
 
 ## Table of Contents:
 - [Technologies and Tools](#technologies-and-tools)
