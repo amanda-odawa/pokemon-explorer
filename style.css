@@ -228,7 +228,7 @@ body > footer {
     text-shadow: 1px 1px rgb(255, 230, 131);  
 }
 
-.modal-content {  
+.modal-content, h6 {  
     border: 3px solid rgb(255, 203, 5);  
     padding: 15px;  
     border-radius: 8px;  
@@ -343,3 +343,32 @@ body.dark-mode .back-button {
         grid-template-columns: repeat(2, 1fr);  
     }  
 }  
+
+.evolution-chain {
+   margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.evolution-stage {
+    text-align: center;
+  
+}
+
+.evolution-stage img {
+    margin-top: -10px;
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    /* margin-bottom: 5px; */
+}
+
+h6 {
+    border: 2px solid rgb(78, 63, 12); 
+    background-color: rgb(255, 230, 131); 
+    padding: 0.5px; 
+    border-radius: 3px; 
+    width: 120px;
+    justify-self: center; 
+}

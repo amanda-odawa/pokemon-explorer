@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Render suggestions
     function renderSuggestions(suggestions) {
         suggestionsBox.innerHTML = '';
         if (suggestions.length === 0) return;
@@ -83,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Open modal
-    function openModal(pokemon) {
+    async function openModal(pokemon) {
         const imageSrc =
             pokemon.sprites.other.dream_world.front_default ||
             pokemon.sprites.other['official-artwork'].front_default ||
@@ -96,15 +97,15 @@ document.addEventListener('DOMContentLoaded', () => {
             `
             <button id="back-to-main" class="back-button">&times;</button><br>
             <img src="${imageSrc}" alt="${pokemon.name}"><br><br>
-            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">TYPE</strong> 
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 13px; padding-right: 13px; border-radius: 3px;">TYPE</strong> 
             <br><br> ${pokemon.types.map(type => type.type.name).join(', ')}</p><br>
-            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">HEIGHT</strong> 
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 13px; padding-right: 13px; border-radius: 3px;">HEIGHT</strong> 
             <br><br> ${(pokemon.height / 10).toFixed(2)} m</p><br>
-            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">WEIGHT</strong> 
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 13px; padding-right: 13px; border-radius: 3px;">WEIGHT</strong> 
             <br><br> ${(pokemon.weight / 10).toFixed(2)} kg</p><br>
-            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">ABILITIES</strong> 
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 13px; padding-right: 13px; border-radius: 3px;">ABILITIES</strong> 
             <br><br> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p><br>
-            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">BASE STATS</strong> 
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 13px; padding-right: 13px; border-radius: 3px;">BASE STATS</strong> 
             <br><br> </p>
             <ul>
                 ${pokemon.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
@@ -116,6 +117,15 @@ document.addEventListener('DOMContentLoaded', () => {
         modalContent.style.backgroundColor = backgroundColor;
 
         pokemonModal.style.display = 'flex';
+
+        // Fetch and display evolution chain
+        const evolutionChainContainer = document.createElement('div');
+        evolutionChainContainer.id = 'evolution-chain';
+        evolutionChainContainer.classList.add('evolution-chain');
+        document.querySelector('.modal-content').appendChild(evolutionChainContainer);
+
+        const chain = await fetchEvolutionChain(pokemon.id);
+        renderEvolutionChain(chain);
     }
 
     document.getElementById('modal-body').addEventListener('click', (e) => {
@@ -224,6 +234,40 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         return typeColors[type] || '#D3D3D3'; // Default to light gray if type isn't found
+    }
+
+    // Fetch evolution chain data
+    async function fetchEvolutionChain(pokemonId) {
+        const speciesUrl = `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`;
+        const speciesData = await fetch(speciesUrl).then(res => res.json());
+        const evolutionChainUrl = speciesData.evolution_chain.url;
+        const evolutionData = await fetch(evolutionChainUrl).then(res => res.json());
+        return evolutionData.chain;
+    }
+
+    // Render evolution chain
+    function renderEvolutionChain(chain) {
+        const evolutionChainContainer = document.getElementById('evolution-chain');
+        evolutionChainContainer.innerHTML = ''; // Clear previous data
+
+        let current = chain;
+        while (current) {
+            const { species, evolves_to } = current;
+            const name = species.name;
+            evolutionChainContainer.innerHTML += `
+                <div class="evolution-stage">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${extractId(species.url)}.png" alt="${name}">
+                    <p  style = "margin-top: -10px;">${name}</p>
+                </div>
+            `;
+            current = evolves_to[0]; // Assuming single evolution path
+        }
+    }
+
+    // Extract Pokémon ID from URL
+    function extractId(url) {
+        const parts = url.split('/');
+        return parts[parts.length - 2];
     }
 
     // Render Pokémon card
