@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Extract Pokémon ID from URL
+    // Extract Pokémon from URL
     function extractId(url) {
         const parts = url.split('/');
         return parts[parts.length - 2];
