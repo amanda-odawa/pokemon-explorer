@@ -267,6 +267,35 @@ body > footer {
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);  
 }  
 
+.evolution-chain {
+   margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.evolution-stage {
+    text-align: center;
+  
+}
+
+.evolution-stage img {
+    margin-top: -10px;
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+    /* margin-bottom: 5px; */
+}
+
+h6 {
+    border: 2px solid rgb(78, 63, 12); 
+    background-color: rgb(255, 230, 131); 
+    padding: 0.5px; 
+    border-radius: 3px; 
+    width: 120px;
+    justify-self: center; 
+}
+
 /* Dark mode */  
 body.dark-mode {  
     background-color: rgb(51, 51, 51);  
@@ -344,31 +373,3 @@ body.dark-mode .back-button {
     }  
 }  
 
-.evolution-chain {
-   margin-bottom: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.evolution-stage {
-    text-align: center;
-  
-}
-
-.evolution-stage img {
-    margin-top: -10px;
-    width: 130px;
-    height: auto;
-    object-fit: contain;
-    /* margin-bottom: 5px; */
-}
-
-h6 {
-    border: 2px solid rgb(78, 63, 12); 
-    background-color: rgb(255, 230, 131); 
-    padding: 0.5px; 
-    border-radius: 3px; 
-    width: 120px;
-    justify-self: center; 
-}
