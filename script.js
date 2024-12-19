@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let allPokemons = [];
 
     // Fetch Pokémon data
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=200')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=100')
         .then(response => response.json())
         .then(data => {
             allPokemons = data.results;
