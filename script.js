@@ -94,13 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('modal-title').textContent = pokemon.name;
         document.getElementById('modal-body').innerHTML =
             `
-            <button id="back-to-main" class="back-button">&times;</button>
-            <img src="${imageSrc}" alt="${pokemon.name}">
-            <p><strong>Type:</strong> ${pokemon.types.map(type => type.type.name).join(', ')}</p>
-            <p><strong>Height:</strong> ${(pokemon.height / 10).toFixed(2)} m</p>
-            <p><strong>Weight:</strong> ${(pokemon.weight / 10).toFixed(2)} kg</p>
-            <p><strong>Abilities:</strong> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p>
-            <p><strong>Base Stats:</strong></p>
+            <button id="back-to-main" class="back-button">&times;</button><br>
+            <img src="${imageSrc}" alt="${pokemon.name}"><br><br>
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">TYPE</strong> 
+            <br><br> ${pokemon.types.map(type => type.type.name).join(', ')}</p><br>
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">HEIGHT</strong> 
+            <br><br> ${(pokemon.height / 10).toFixed(2)} m</p><br>
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">WEIGHT</strong> 
+            <br><br> ${(pokemon.weight / 10).toFixed(2)} kg</p><br>
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">ABILITIES</strong> 
+            <br><br> ${pokemon.abilities.map(ability => ability.ability.name).join(', ')}</p><br>
+            <p><strong style="border: 2px solid rgb(78, 63, 12); background-color: rgb(255, 230, 131); padding: 0.5px; padding-left: 4px; padding-right: 4px; border-radius: 3px;">BASE STATS</strong> 
+            <br><br> </p>
             <ul>
                 ${pokemon.stats.map(stat => `<li>${stat.stat.name}: ${stat.base_stat}</li>`).join('')}
             </ul>

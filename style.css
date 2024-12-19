@@ -219,15 +219,27 @@ body > footer {
     backdrop-filter: blur(4px);  
     justify-content: center;  
     align-items: center;  
+    
 }  
+
+#modal-title {
+    font-style: italic;
+    text-transform: capitalize;  
+    text-shadow: 1px 1px rgb(255, 230, 131);  
+}
 
 .modal-content {  
     border: 3px solid rgb(255, 203, 5);  
     padding: 15px;  
     border-radius: 8px;  
     width: 70%;  
+    max-width: 700px;
+    max-height: 500px;
     text-align: center;  
     font-size: 18px;  
+    scroll-behavior: auto;
+    overflow-y: auto;
+    
 }  
 
 .modal-content img {  
