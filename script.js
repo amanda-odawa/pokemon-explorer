@@ -152,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    
     viewFavoritesButton.addEventListener('click', () => {
         const favorites = Object.values(localStorage).map(item => JSON.parse(item));
         pokemonList.innerHTML = '';
@@ -159,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderPokemonCard(fav);
         });
     });
+    
 
     searchField.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {

@@ -41,8 +41,7 @@ The Pokémon Explorer app is a fun and interactive tool where users can explore 
     ```bash
     cd week3-code-challenge
     ```
-3. Ensure the API server is running at http://localhost:3000/films.
-4. Open index.html in your web browser.
+3. Open index.html in your web browser.
 
 ### Usage
 Once the app is running, navigate to it in your browser. 
