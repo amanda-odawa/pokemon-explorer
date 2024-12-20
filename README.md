@@ -39,7 +39,7 @@ The Pokémon Explorer app is a fun and interactive tool where users can explore 
     ```
 2. Navigate to the project directory:
     ```bash
-    cd week3-code-challenge
+    cd pokemon-explorer
     ```
 3. Open index.html in your web browser.
 
